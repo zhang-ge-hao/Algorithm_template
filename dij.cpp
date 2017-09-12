@@ -1,3 +1,4 @@
+#define INF 0x3f3f3f3f
 void dij(ll sta,ll *d,ll *head){
     memset(d,INF,sizeof(ll)*MAXN);
     d[sta] = 0;
