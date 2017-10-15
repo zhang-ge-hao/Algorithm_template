@@ -1,6 +1,7 @@
 #define INF 0x3f3f3f3f
-void dij(ll sta,ll *d,ll *head){
-    memset(d,INF,sizeof(ll)*MAXN);
+void dij(ll sta,ll *d,graph G){
+    ll *head = G.head; edge *E = G.E;
+    memset(d,INF,sizeof(ll)*G._maxn);
     d[sta] = 0;
     priority_queue<P2,vector<P2>,greater<P2> >que;
     que.push(P2(0,sta));

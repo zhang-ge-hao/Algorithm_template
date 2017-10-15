@@ -1,20 +1,7 @@
-#define MAXN 20007
-#define MAXE 50007
-struct edge{
-    ll to,next;
-    edge(ll a=0,ll b=0){
-        to = a; next = b;
-    }
-}E[MAXE];
-ll eid,head[MAXN];
-void add(ll h,ll t){
-    E[eid] = edge(t,head[h]);
-    head[h] = eid++;
-}
-
-ll vid,dfn[MAXN],low[MAXN],insta[MAXN],block[MAXN];
+ll vid,*dfn,*low,*insta,*block;
 stack<ll> sta;
-void tarjan(ll r,vector<vector<ll>> &res){
+void tarjan(ll r,vector<vector<ll>> &res,const graph &G){
+    ll *head = G.head;edge *E = G.E;
     sta.push(r);
     insta[r] = 1;
     dfn[r] = low[r] = ++vid;
@@ -22,7 +9,7 @@ void tarjan(ll r,vector<vector<ll>> &res){
     for(ll i=head[r];i!=-1;i=E[i].next){
         s = E[i].to;
         if(!dfn[s]){
-            tarjan(s,res);
+            tarjan(s,res,G);
             if(low[s] < low[r])low[r] = low[s];
         }else if(dfn[s] < low[r]&&insta[s]){
             low[r] = dfn[s];
@@ -38,14 +25,22 @@ void tarjan(ll r,vector<vector<ll>> &res){
         }while(t != r);
     }
 }
-void mainTarjan(ll nodecon,vector<vector<ll>> &res){
-    memset(low,0,sizeof low);
-    memset(dfn,0,sizeof dfn);
+void mainTarjan(ll nodecon,vector<vector<ll>> &res,const graph &G){
+    static bool first_time = 1;
+    if(first_time){
+        first_time = 0;
+        dfn = new ll[G._maxn];
+        low = new ll[G._maxn];
+        insta = new ll[G._maxn];
+        block = new ll[G._maxn];
+    }
+    memset(low,0,sizeof(ll)*G._maxn);
+    memset(dfn,0,sizeof(ll)*G._maxn);
     vid = 0;
     for(ll i=1;i<=nodecon;i++){
         if(!dfn[i]){
-            memset(insta,0,sizeof insta);
-            tarjan(i,res);
+            memset(insta,0,sizeof(ll)*G._maxn);
+            tarjan(i,res,G);
         }
     }
 }
