@@ -1,19 +1,20 @@
 ll vid,*dfn,*low,*insta,*block;
 stack<ll> sta;
-void tarjan(ll r,vector<vector<ll>> &res,const graph &G){
-    ll *head = G.head;edge *E = G.E;
+void tarjan(ll r,ll f,vector<vector<ll>> &res,const graph &G,bool mode){
+    ll *head = G.head,s,t;edge *E = G.E;
+    bool haskip = 0;
     sta.push(r);
-    insta[r] = 1;
-    dfn[r] = low[r] = ++vid;
-    ll s,t;
+    insta[r] = 1,dfn[r] = low[r] = ++vid;
     for(ll i=head[r];i!=-1;i=E[i].next){
         s = E[i].to;
-        if(!dfn[s]){
-            tarjan(s,res,G);
-            if(low[s] < low[r])low[r] = low[s];
-        }else if(dfn[s] < low[r]&&insta[s]){
-            low[r] = dfn[s];
+        if(s == f && mode && !haskip){
+            haskip = 1; continue;
         }
+        if(!dfn[s]){
+            tarjan(s,r,res,G,mode);
+            if(low[s] < low[r])low[r] = low[s];
+        }else if(dfn[s] < low[r]&&insta[s])
+            low[r] = dfn[s];
     }
     if(dfn[r] == low[r]){
         res.push_back(*(new vector<ll>()));
@@ -25,7 +26,8 @@ void tarjan(ll r,vector<vector<ll>> &res,const graph &G){
         }while(t != r);
     }
 }
-void mainTarjan(ll nodecon,vector<vector<ll>> &res,const graph &G){
+void mainTarjan(ll nodecon,vector<vector<ll>> &res,const graph &G,bool mode){
+    // mode == 1 shuang lian tong mode == 0 qiang lian tong
     static bool first_time = 1;
     if(first_time){
         first_time = 0;
@@ -40,7 +42,7 @@ void mainTarjan(ll nodecon,vector<vector<ll>> &res,const graph &G){
     for(ll i=1;i<=nodecon;i++){
         if(!dfn[i]){
             memset(insta,0,sizeof(ll)*G._maxn);
-            tarjan(i,res,G);
+            tarjan(i,-1,res,G,mode);
         }
     }
 }
