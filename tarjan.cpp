@@ -39,10 +39,10 @@ void mainTarjan(ll nodecon,vector<vector<ll>> &res,const graph &G,bool mode){
     ll arrsize = sizeof(ll)*(nodecon+1);
     memset(low,0,arrsize);
     memset(dfn,0,arrsize);
+    memset(insta,0,arrsize);
     vid = 0;
     for(ll i=1;i<=nodecon;i++){
         if(!dfn[i]){
-            memset(insta,0,arrsize);
             tarjan(i,-1,res,G,mode);
         }
     }
