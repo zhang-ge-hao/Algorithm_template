@@ -36,12 +36,13 @@ void mainTarjan(ll nodecon,vector<vector<ll>> &res,const graph &G,bool mode){
         insta = new ll[G._maxn];
         block = new ll[G._maxn];
     }
-    memset(low,0,sizeof(ll)*G._maxn);
-    memset(dfn,0,sizeof(ll)*G._maxn);
+    ll arrsize = sizeof(ll)*(nodecon+1);
+    memset(low,0,arrsize);
+    memset(dfn,0,arrsize);
     vid = 0;
     for(ll i=1;i<=nodecon;i++){
         if(!dfn[i]){
-            memset(insta,0,sizeof(ll)*G._maxn);
+            memset(insta,0,arrsize);
             tarjan(i,-1,res,G,mode);
         }
     }
