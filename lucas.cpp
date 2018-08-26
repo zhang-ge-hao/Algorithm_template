@@ -1,3 +1,5 @@
+#include "basic.h"
+
 ll quick_mod(ll a, ll b){
     ll ans = 1;
     a %= MOD;

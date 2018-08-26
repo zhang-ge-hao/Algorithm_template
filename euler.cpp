@@ -1,3 +1,5 @@
+#include "basic.h"
+
 void euler1(ll *euler,ll _n){
 	memset(euler,0,sizeof(ll)*_n);
 	for(ll i=1;i<=_n;i++)euler[i] = i;

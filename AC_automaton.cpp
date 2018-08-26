@@ -1,3 +1,5 @@
+#include "basic.h"
+
 struct node{
     node *_next[MAXC],*_fail;
     ll flag,vis;

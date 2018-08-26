@@ -1,3 +1,4 @@
+#include "basic.h"
 struct suffix_array{
     ll *Rank,*suffArr,*height,*bCon,*tArr1,*tArr2,*tArr3;
     suffix_array(ll maxl){

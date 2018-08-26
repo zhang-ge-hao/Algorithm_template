@@ -1,3 +1,4 @@
+#include "basic.h"
 bool spfa(ll sta,ll *d,ll nodecon,graph G){
     memset(d,INF,sizeof(ll)*G._maxn);
     ll *head = G.head; edge *E = G.E;

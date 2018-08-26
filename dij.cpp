@@ -1,3 +1,4 @@
+#include "basic.h"
 #define INF 0x3f3f3f3f
 void dij(ll sta,ll *d,graph G){
     ll *head = G.head; edge *E = G.E;

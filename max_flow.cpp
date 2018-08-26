@@ -1,3 +1,5 @@
+#include "basic.h"
+
 ll n,flow[MAXN][MAXN],pre[MAXN],use[MAXN];
 bool bfs(){
     queue<ll> que; que.push(1);

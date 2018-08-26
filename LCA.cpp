@@ -1,3 +1,4 @@
+#include "basic.h"
 struct LCA_rmq{
     RMQ *r;
     ll *n_ft,*t_n,*n_p,*n_r,*r_n,dfst,nid,maxn;

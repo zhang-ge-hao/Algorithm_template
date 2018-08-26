@@ -1,3 +1,4 @@
+#include "basic.h"
 struct RMQ{
     ll **st,maxl,maxh; double log2;
     RMQ(const ll &Maxl){
