@@ -1,3 +1,4 @@
+#include "basic.h"
 ll vid,*dfn,*low,*insta,*block;
 stack<ll> sta;
 void tarjan(ll r,ll f,vector<vector<ll>> &res,const graph &G,bool mode){

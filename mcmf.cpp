@@ -1,3 +1,4 @@
+#include "basic.h"
 struct MCMF{
     ll n,m;
     struct Edge{

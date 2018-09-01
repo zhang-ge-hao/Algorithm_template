@@ -1,3 +1,5 @@
+#include "basic.h"
+
 ll a[105][105],b[105];
 void catalan(ll N){
     ll len,carry,temp;

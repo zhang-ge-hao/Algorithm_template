@@ -1,3 +1,5 @@
+#include "basic.h"
+
 #define BM_TYPE char
 struct BM{
     const static int MAXC = 26,CHAR0 = 'a';

@@ -1,3 +1,5 @@
+#include "basic.h"
+
 bool binMatch(ll x,ll *os,bool *used,const graph &G){
     ll *head = G.head; edge *E = G.E;
     for(ll i=head[x];i!=-1;i=E[i].next){

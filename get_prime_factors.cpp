@@ -1,4 +1,5 @@
-ll get_prime_factors(ll _n,ll *res){//resÖĞ»á±»´æ·ÅÉÏÖÊÒòÊı
+#include "basic.h"
+ll get_prime_factors(ll _n,ll *res){//resï¿½Ğ»á±»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     ll n2 = _n,rid = 0;
     if(_n<2)return 0;
     for(ll i=2;i*i<=n2;i++)if(n2%i == 0){
@@ -6,5 +7,5 @@ ll get_prime_factors(ll _n,ll *res){//resÖĞ»á±»´æ·ÅÉÏÖÊÒòÊı
         res[rid++] = i;
     }
     if(n2!=1)res[rid++] = n2;
-    return rid; //ÖÊÒòÊıÊıÄ¿
+    return rid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 }

@@ -1,3 +1,4 @@
+#include "basic.h"
 ll get_rand(ll lo,ll hi){
     static bool has_init = 0;
     if(!has_init){

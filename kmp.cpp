@@ -1,3 +1,4 @@
+#include "basic.h"
 template<typename _type>struct KMP{
     _type *P; ll lenP,*next = 0;
     void build_next(){

@@ -1,3 +1,4 @@
+#include "basic.h"
 template<class _type>struct LIS{
     static bool comp(const _type &a,const _type &b){
         return a <= b;
